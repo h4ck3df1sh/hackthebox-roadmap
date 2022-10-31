@@ -1,0 +1,24 @@
+Since we are facing a mySQL database, we are trying:
+    
+    Default user: root
+    
+    1. mysql -u root -h 10.129.42.183
+
+    Your MariaDB connection id is 142
+    Server version: 10.3.27-MariaDB-0+deb10u1 Debian 10
+
+    2. To get database info
+
+    show databases;
+
+    3. To use a specific DB
+
+    use HTB;
+
+    4. To see DB's tables
+
+    show tables;
+
+    5. To see tables content
+
+    Select * from config

@@ -1,0 +1,5 @@
+# Nmap 7.92 scan initiated Mon Oct 31 21:28:17 2022 as: nmap -sV -p3306 -oG open-ports-version -vvv 10.129.42.183
+# Ports scanned: TCP(1;3306) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.129.42.183 ()	Status: Up
+Host: 10.129.42.183 ()	Ports: 3306/open/tcp//mysql?///
+# Nmap done at Mon Oct 31 21:31:01 2022 -- 1 IP address (1 host up) scanned in 163.19 seconds
