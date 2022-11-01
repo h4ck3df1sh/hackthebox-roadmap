@@ -1,0 +1,27 @@
+1. Scan open ports with silent scan
+    nmap -sS -n -Pn
+
+2. Once we have a list of open ports get the version of them
+    nmap -sV -n -Pn -p{ports} 
+
+3. FTP port is open -> Check if anon log in is allowed
+    nmap -sC ftp-anon
+  
+4. Use nc to connect to ftp server
+    nc IP Port
+
+    4.1 To log in
+    
+      USER anonymous
+
+    4.2 To download files finded with nmap -sC {NO FTP Connection needed}
+      
+      wget -m ftp://anonymous:anonymous@10.129.95.111
+
+5. With gobuster, get files in http server
+    
+    gobuster dir -u 10.129.95.111 -w /usr/share/seclists/Discovery/Web-Con
+
+    5.1 Dashboard page redirects into login.php
+
+        5.1.1 Use Credentials obtained on FTP server to log in
