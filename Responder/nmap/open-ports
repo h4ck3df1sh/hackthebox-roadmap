@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Fri Nov  4 18:30:36 2022 as: nmap -sS -p- -n -Pn -open -oG open-ports 10.129.101.14
+Host: 10.129.101.14 ()	Status: Up
+Host: 10.129.101.14 ()	Ports: 80/open/tcp//http///, 5985/open/tcp//wsman///	Ignored State: filtered (65533)
+# Nmap done at Fri Nov  4 18:37:55 2022 -- 1 IP address (1 host up) scanned in 438.91 seconds

