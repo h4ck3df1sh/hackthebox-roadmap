@@ -1,0 +1,23 @@
+1. Scan IP open ports with nmap
+
+2. Scan Version and vulnerabilites with nmap -sCV
+    
+    2.1 Nothing interesting in a 1st look
+
+3. Scan possible DIRS, DNS, or VHOSTS with goBuster
+
+    3.1 DIRS: gobuster dir -u {http:target} -w {secslist/common} [x] not successfull
+ 
+    3.2 DNS: gobuster dns -d {domain.com} -w {secslist/dns/subdomains} [x] not successfull
+
+    3.3 VHOST: gobuster vhost -u {domain} -w {secslist/dns/subdomains} [1] worked
+      
+      Found: s3.thetoppers.htb (Status: 404) [Size: 21]
+
+4. S3 is an amazon service that can be used with awscli
+
+5. list buckets inside s3.thetoppers.htb
+
+6. Upload a php-reverse-shell
+
+7. Find flag.txt » Find flag.txt 2>/dev/null
