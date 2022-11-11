@@ -1,0 +1,4 @@
+# Nmap 7.92 scan initiated Tue Nov  8 18:27:17 2022 as: nmap -sS -open -n -Pn -oG open-ports 10.129.25.142
+Host: 10.129.25.142 ()	Status: Up
+Host: 10.129.25.142 ()	Ports: 135/open/tcp//msrpc///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///, 1433/open/tcp//ms-sql-s///
+# Nmap done at Tue Nov  8 18:27:20 2022 -- 1 IP address (1 host up) scanned in 3.33 seconds
